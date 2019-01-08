@@ -9,31 +9,31 @@
 	$(function(){
 			$.ajax({
 				type:"post",
-				url:"voteSubject_findAll.action",
+				url:"findList",
 				dataType:"json",
 				success:function(data){
-					if(data.code== 1){
+					if(data.status == "success"){
 						$("#list").html("");
-						$(data.obj).each(function(index,item){
+						$(data.result).each(function(index,item){
 							var str = "<li ";
 							if(index%2 ==0){
 								str +='calss="odd"';
 							}
 							str+='><h4>'
-							+'<a href="vote.html?vsid='+item.vsid+'">' +item.title+'</a>'
+							+'<a href="vote.html?vsid='+item.code+'">' +item.title+'</a>'
 							+'<h4><div class="join">'
-							+'<a href="vote.html?vsid='+item.vsid+'">我要参与</a></div>'
+							+'<a href="vote.html?vsid='+item.code+'">我要参与</a></div>'
 							+'<p class="info">共有 '+item.optioncount+'个选项，已有 '+item.usercount+'网友参与了投票。</p> '
 							+'</li>';
 							$("#list").html($("#list").html()+str);
 						});
 					}else{
-						alert("查询失败！原因"+data.msg);
+						alert("查询失败！原因"+data.code);
 					}
 				}
 			});
 	
-			$.ajax({
+			/*$.ajax({
 				type:"post",
 				url:"voteSubject_getLoginUser.action",
 				dataType:"json",
@@ -45,7 +45,7 @@
 					location.href="login.html";
 					}
 				}
-			});
+			});*/
 			
 			$("#sub").click(function(){
 				$.ajax({
@@ -89,8 +89,8 @@
   <div id="navbar" class="wrap">
   	<div class="profile" id="user">
   		您好，<span id="loginuser"></span>
-  		<span class="return"><a href="manager.html">返回列表</a></span>
-  		<span class="addnew"><a href="add.html">添加新投票</a></span>
+  		<span class="return"><a href="manager">返回列表</a></span>
+  		<span class="addnew"><a href="add">添加新投票</a></span>
   		<span class="modify"><a href="Subject!modify.action">维护</a></span>
   		
   	</div>

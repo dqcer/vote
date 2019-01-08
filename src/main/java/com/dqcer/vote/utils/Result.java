@@ -18,10 +18,13 @@ public class Result<T> implements Serializable{
 
     private String status;
 
-    public Result() {
+
+    public   Result() {
         this("",null,"success");
     }
 
-
+    public Result(T result) {
+        this("200",result,"success");
+    }
 
 }

@@ -30,3 +30,5 @@ CREATE TABLE `pub_user` (
   PRIMARY KEY (`code`),
   UNIQUE KEY `code_UNIQUE` (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+

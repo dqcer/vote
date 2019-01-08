@@ -10,21 +10,21 @@ $(function(){
 	$("#addbtn").click(function(){
 		$.ajax({
 			type:"post",
-			url:"voteSubject_add.action",
+			url:"subjectAdd",
 			data:$("#myform").serialize(),
 			dataType:"json",
 			success:function(data){
-				if(data.code==1){
+				if(data.status=="success"){
 					alert("添加投票成功！");
-					location.href="manager.html";
+					location.href="manager";
 				}else{
-					alert("添加投票失败，原因："+data.msg);
+					alert("添加投票失败，原因："+data.code);
 				}
 			}
 		});
 	});	
 	
-	$.ajax({
+	$/*.ajax({
 		type:"post",
 		url:"voteSubject_getLoginUser.action",
 		dataType:"json",
@@ -36,7 +36,7 @@ $(function(){
 			location.href="login.html";
 			}
 		}
-	});
+	});*/
 });
 </script>
 <script type="text/javascript">
@@ -81,7 +81,7 @@ function DelOption(e)
 	<div class="profile">
 		您好，<span id="loginuser"></span>
 		<span class="return"><a href="manager.html">返回列表</a></span>
-		<span class="addnew"><a href="add.html">添加新投票</a></span>
+		<span class="addnew"><a href="add">添加新投票</a></span>
 		<span class="modify"><a href="Subject!modify.action">维护</a></span>
 		
 	</div>
@@ -103,8 +103,8 @@ function DelOption(e)
 				</dd>
 				<dt>投票类型：</dt>
 				<dd>
-		  		   <input type="radio" name="stype"  checked="checked" value="1" />单选
-				   <input type="radio" name="stype" value="2" />多选
+		  		   <input type="radio" name="status"  checked="checked" value="1" />单选
+				   <input type="radio" name="status" value="2" />多选
 				</dd>
 				<dt>投票选项：</dt>
 				

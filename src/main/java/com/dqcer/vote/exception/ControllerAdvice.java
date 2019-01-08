@@ -31,7 +31,7 @@ public class ControllerAdvice {
         map.put("descinfo",myex.getDescinfo());*/
         //发生异常进行日志记录，写入数据库或者其他处理，此处省略
 
-        System.err.println(myex.getStackTrace());
+        System.err.println(myex);
 
 
         return null;

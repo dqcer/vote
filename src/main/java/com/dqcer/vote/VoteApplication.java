@@ -10,14 +10,6 @@ public class VoteApplication {
 		SpringApplication.run(VoteApplication.class, args);
 	}
 
-	private	 	String		code	;
-	private		String		user_name	;
-	private		String		user_password	;
-	private		String		salt	;
-	private		String		create_time	;
-	private		String		update_time	;
-	private		String		status	;
-
 
 
 }
