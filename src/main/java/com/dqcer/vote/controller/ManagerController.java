@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -15,6 +16,7 @@ public class ManagerController {
 
     @Autowired
     private ManagerService managerService;
+
 
     /**
      * manager list
@@ -34,13 +36,15 @@ public class ManagerController {
     }
 
     /**
-     * 添加投票内容
+     * 添加投票内容与选项
      */
     @ResponseBody
     @PostMapping("subjectAdd")
-    public Result subjectAdd(@RequestParam HashMap<String, Object> map) {
-        return managerService.subjectAdd(map);
+    public Result subjectAdd(String title,int status, @RequestParam("voteoptions") List<String> voteoptions) {
+
+        return managerService.subjectAdd(title, status , voteoptions);
     }
+
 
 
 }
